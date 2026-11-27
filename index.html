@@ -2,570 +2,616 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070d1c">
-<meta name="description" content="Nexus Outreach is a youth leadership and advocacy organisation. Beyond awareness. Towards action.">
-<title>Nexus Outreach | Beyond Awareness. Towards Action.</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-
-:root {
- --bg:#070d1c;
- --panel:#0c172c;
- --blue:#91baff;
- --white:#f5f7fc;
- --muted:#aab6ca;
- --line:#293954;
-}
-
-* {box-sizing:border-box;margin:0;padding:0}
-
-html {scroll-behavior:smooth}
-
-body {
- background:var(--bg);
- color:var(--white);
- font-family:'DM Sans',sans-serif;
- line-height:1.7;
- overflow-x:hidden;
-}
-
-body::before {
- content:"";
- position:fixed;
- inset:0;
- z-index:-1;
- pointer-events:none;
- background-image:
- radial-gradient(1px 1px at 10% 20%,white 99%,transparent),
- radial-gradient(1px 1px at 70% 40%,white 99%,transparent),
- radial-gradient(2px 2px at 40% 80%,white 99%,transparent),
- radial-gradient(1px 1px at 90% 10%,white 99%,transparent);
- background-size:240px 220px;
- opacity:.35;
-}
-
-header {
- height:80px;
- padding:0 7%;
- display:flex;
- align-items:center;
- justify-content:space-between;
- border-bottom:1px solid #ffffff18;
- background:#070d1ceF;
- position:sticky;
- top:0;
- z-index:10;
-}
-
-.logo {
- color:white;
- text-decoration:none;
- font:800 16px Manrope,sans-serif;
- letter-spacing:2px;
-}
-
-.logo span {color:var(--blue)}
-
-nav {display:flex;gap:28px;align-items:center}
-
-nav a {
- color:#c4cee0;
- text-decoration:none;
- font-size:13px;
-}
-
-nav a:hover {color:var(--blue)}
-
-.menu {
- display:none;
- color:white;
- background:none;
- border:0;
- font-size:27px;
- cursor:pointer;
-}
-
-.hero {
- min-height:690px;
- padding:110px 9%;
- display:flex;
- align-items:center;
- position:relative;
- overflow:hidden;
-}
-
-.hero-content {max-width:650px;z-index:2}
-
-.eyebrow {
- color:var(--blue);
- font-size:10px;
- letter-spacing:3px;
- font-weight:700;
- margin-bottom:20px;
-}
-
-h1,h2,h3 {font-family:Manrope,sans-serif}
-
-h1 {
- font-size:clamp(43px,6vw,75px);
- line-height:1.12;
- letter-spacing:-3px;
- margin-bottom:25px;
-}
-
-h1 span,h2 span {color:var(--blue)}
-
-.hero p.intro {
- max-width:570px;
- color:#b9c5d9;
- font-size:17px;
-}
-
-.actions {
- display:flex;
- align-items:center;
- gap:25px;
- flex-wrap:wrap;
- margin-top:35px;
-}
-
-.button {
- display:inline-block;
- background:#dce9ff;
- color:#081226;
- padding:13px 21px;
- text-decoration:none;
- font-size:13px;
- font-weight:700;
- transition:.25s;
-}
-
-.button:hover {background:white;transform:translateY(-3px)}
-
-.secondary {
- color:#cbd7e9;
- text-decoration:none;
- font-size:13px;
-}
-
-.cosmos {
- position:absolute;
- right:8%;
- top:120px;
- width:400px;
- height:400px;
- display:grid;
- place-items:center;
-}
-
-.planet {
- width:155px;
- height:155px;
- border-radius:50%;
- background:radial-gradient(circle at 30% 25%,#e4efff,#7699d0 35%,#243c68 75%,#101a30);
- box-shadow:0 0 90px #7198d755;
-}
-
-.orbit {
- position:absolute;
- width:350px;
- height:170px;
- border:1px solid #8eb7ff66;
- border-radius:50%;
- transform:rotate(-30deg);
-}
-
-.orbit.two {
- width:260px;
- height:360px;
- transform:rotate(45deg);
- opacity:.5;
-}
-
-.cosmic-star {
- position:absolute;
- width:7px;
- height:7px;
- background:white;
- border-radius:50%;
- box-shadow:0 0 15px var(--blue);
-}
-
-.st1 {top:35px;left:80px}
-.st2 {right:10px;top:120px}
-.st3 {bottom:60px;left:40px}
-.st4 {bottom:20px;right:110px}
-
-.hero-footer {
- position:absolute;
- bottom:25px;
- left:9%;
- right:9%;
- display:flex;
- justify-content:space-between;
- color:#8291aa;
- font-size:9px;
- letter-spacing:2px;
-}
-
-section {scroll-margin-top:80px}
-
-.section {padding:105px 12%}
-
-.section h2 {
- font-size:clamp(36px,5vw,57px);
- line-height:1.2;
- letter-spacing:-2px;
- margin:15px 0 30px;
-}
-
-.lead {
- color:#d4deed;
- font-size:19px;
- max-width:720px;
-}
-
-.about-grid {
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:65px;
- margin-top:40px;
-}
-
-.about-grid p {color:var(--muted);margin-bottom:15px}
-
-.values {background:var(--panel)}
-
-.value-grid {
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:25px;
- margin-top:50px;
-}
-
-.value-card {
- border-top:1px solid #627b9e;
- padding-top:20px;
-}
-
-.value-card b {
- color:var(--blue);
- font-size:12px;
- letter-spacing:2px;
-}
-
-.value-card h3 {margin:15px 0;font-size:19px}
-
-.value-card p {color:var(--muted);font-size:14px}
-
-.initiative {
- border-top:1px solid var(--line);
- padding:28px 0;
- display:grid;
- grid-template-columns:90px 1fr;
- gap:20px;
-}
-
-.initiative small {
- color:var(--blue);
- letter-spacing:2px;
-}
-
-.initiative h3 {font-size:20px;margin-bottom:8px}
-
-.initiative p {color:var(--muted);max-width:650px;font-size:14px}
-
-.advocacy {background:var(--panel)}
-
-.topic-list {
- display:flex;
- flex-wrap:wrap;
- gap:12px;
- margin-top:35px;
-}
-
-.topic-list span {
- border:1px solid #405473;
- padding:10px 15px;
- font-size:12px;
- color:#dce5f3;
-}
-
-.journal {
- padding:85px 12%;
- background:linear-gradient(110deg,#132544,#0a1222);
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:30px;
-}
-
-.journal h2 {font-size:48px;line-height:1.15;margin:15px 0}
-
-.journal p {color:var(--muted)}
-
-.stamp {
- width:140px;
- height:140px;
- border:1px solid #8eb7ff;
- border-radius:50%;
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- color:var(--blue);
- letter-spacing:2px;
- transform:rotate(10deg);
- flex-shrink:0;
-}
-
-.stamp strong {font-size:20px;color:white}
-
-.join {text-align:center}
-
-.join .lead {margin:0 auto 30px}
-
-.email {
- display:block;
- margin-top:20px;
- color:#9baecb;
- font-size:12px;
-}
-
-footer {
- padding:35px 7%;
- border-top:1px solid #ffffff18;
- display:flex;
- justify-content:space-between;
- align-items:center;
- flex-wrap:wrap;
- gap:15px;
- color:#91a0b8;
- font-size:11px;
-}
-
-@media(max-width:850px) {
- .cosmos {right:-100px;opacity:.35}
- .value-grid {grid-template-columns:1fr 1fr}
- .section {padding:85px 7%}
- .about-grid {gap:25px}
-}
-
-@media(max-width:600px) {
- header {padding:0 6%}
- .menu {display:block}
- nav {
-  display:none;
-  position:absolute;
-  top:79px;
-  left:0;
-  right:0;
-  background:#0c172c;
-  padding:25px 7%;
-  flex-direction:column;
-  align-items:flex-start;
- }
- nav.open {display:flex}
- .hero {padding:100px 7%;min-height:720px}
- .hero h1 {font-size:46px}
- .cosmos {top:410px;right:-110px;transform:scale(.75)}
- .hero-footer {left:7%;right:7%;font-size:8px}
- .about-grid {grid-template-columns:1fr}
- .value-grid {grid-template-columns:1fr}
- .initiative {grid-template-columns:65px 1fr}
- .journal {padding:70px 7%}
- .stamp {display:none}
- .journal h2 {font-size:40px}
- footer {padding:30px 7%;flex-direction:column;align-items:flex-start}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070d1c">
+  <title>Nexus Outreach | Beyond Awareness. Towards Action.</title>
+  <meta name="description" content="Nexus Outreach is a youth-led community advancing leadership, advocacy and meaningful action.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#070d1c; --panel:#0c172c; --panel2:#101f39;
+      --blue:#91baff; --white:#f4f7ff; --muted:#a5b2ca;
+      --line:rgba(145,186,255,.16);
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--bg); color:var(--white);
+      font-family:'DM Sans',sans-serif; line-height:1.7;
+    }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; cursor:pointer; }
+    .container { width:min(1120px,90%); margin:auto; }
+    header {
+      position:sticky; top:0; z-index:20;
+      background:rgba(7,13,28,.92); backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    nav {
+      min-height:76px; display:flex; align-items:center;
+      justify-content:space-between; gap:20px;
+    }
+    .logo { font-family:Manrope,sans-serif; font-weight:800; letter-spacing:2px; }
+    .logo span { color:var(--blue); }
+    .nav-links { display:flex; align-items:center; gap:25px; font-size:13px; color:var(--muted); }
+    .nav-links a:hover { color:var(--blue); }
+    .menu-btn { display:none; background:none; border:0; color:white; font-size:25px; }
+    .hero {
+      min-height:650px; display:grid; place-items:center; text-align:center;
+      position:relative; overflow:hidden;
+      background:
+        radial-gradient(ellipse at 50% 45%,rgba(49,99,177,.2),transparent 55%),
+        radial-gradient(circle at 15% 20%,rgba(145,186,255,.12) 1px,transparent 2px),
+        radial-gradient(circle at 80% 30%,rgba(145,186,255,.2) 1px,transparent 2px),
+        radial-gradient(circle at 65% 80%,rgba(145,186,255,.15) 1px,transparent 2px);
+    }
+    .hero:before {
+      content:""; position:absolute; width:390px; height:390px; border-radius:50%;
+      border:1px solid rgba(145,186,255,.16);
+      box-shadow:0 0 90px rgba(57,117,210,.13),inset 0 0 70px rgba(57,117,210,.1);
+    }
+    .hero-content { position:relative; z-index:1; max-width:790px; padding:80px 0; }
+    .eyebrow { color:var(--blue); text-transform:uppercase; letter-spacing:4px; font-size:11px; font-weight:700; }
+    h1,h2,h3 { font-family:Manrope,sans-serif; line-height:1.2; }
+    h1 { font-size:clamp(42px,8vw,76px); margin:22px 0; letter-spacing:-2px; }
+    h1 span { color:var(--blue); }
+    .hero p { max-width:650px; margin:0 auto; color:var(--muted); font-size:17px; }
+    .actions { display:flex; justify-content:center; gap:13px; flex-wrap:wrap; margin-top:32px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 22px; border-radius:7px; font-weight:700; font-size:13px;
+      border:1px solid var(--blue); transition:.2s;
+    }
+    .btn.primary { background:var(--blue); color:#071225; }
+    .btn.secondary { color:var(--blue); background:transparent; }
+    .btn:hover { transform:translateY(-2px); }
+    section { padding:90px 0; }
+    .section-head { max-width:680px; margin-bottom:38px; }
+    .section-head h2 { font-size:clamp(29px,5vw,42px); margin:12px 0; }
+    .section-head p,.muted { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card {
+      background:linear-gradient(145deg,var(--panel),#091326);
+      border:1px solid var(--line); border-radius:13px; padding:25px;
+    }
+    .card h3 { margin-bottom:10px; font-size:19px; }
+    .card p { color:var(--muted); font-size:14px; }
+    .symbol { color:var(--blue); font-size:25px; margin-bottom:15px; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:45px; align-items:center; }
+    .about-panel {
+      min-height:300px; border:1px solid var(--line); border-radius:16px;
+      background:radial-gradient(circle at center,rgba(66,120,204,.2),transparent 65%),var(--panel);
+      display:grid; place-items:center; text-align:center; padding:30px;
+    }
+    .about-panel strong { display:block; font:800 35px Manrope; color:var(--blue); }
+    .about-panel span { color:var(--muted); font-size:12px; letter-spacing:3px; }
+    .journal-card { display:flex; flex-direction:column; gap:12px; }
+    .journal-card .date { color:var(--blue); font-size:11px; letter-spacing:1px; }
+    .journal-card .post-body { white-space:pre-wrap; overflow-wrap:anywhere; }
+    .empty { color:var(--muted); padding:25px; border:1px dashed var(--line); border-radius:10px; }
+    .cta {
+      background:linear-gradient(120deg,#10284b,#0b1830);
+      border:1px solid var(--line); border-radius:18px; padding:55px 25px; text-align:center;
+    }
+    .cta h2 { font-size:35px; margin-bottom:12px; }
+    .cta p { color:var(--muted); margin-bottom:22px; }
+    footer { padding:35px 0; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    .footer-row { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    #adminPanel { display:none; min-height:100vh; padding:45px 0 80px; }
+    .admin-wrap { max-width:850px; margin:auto; }
+    .admin-top { display:flex; justify-content:space-between; gap:15px; align-items:center; margin-bottom:28px; }
+    .admin-box { background:var(--panel); border:1px solid var(--line); padding:25px; border-radius:12px; margin:18px 0; }
+    label { display:block; color:var(--muted); font-size:13px; margin:14px 0 6px; }
+    input,textarea,select {
+      width:100%; background:#071225; border:1px solid var(--line);
+      color:white; border-radius:7px; padding:12px; outline:none;
+      font:inherit;
+    }
+    input:focus,textarea:focus,select:focus { border-color:var(--blue); }
+    textarea { min-height:150px; resize:vertical; }
+    .admin-post { padding:16px 0; border-bottom:1px solid var(--line); }
+    .admin-post:last-child { border:0; }
+    .admin-post p { color:var(--muted); font-size:13px; }
+    .small-actions { display:flex; gap:9px; flex-wrap:wrap; margin-top:10px; }
+    .small-actions button,.logout {
+      background:transparent; border:1px solid var(--line); color:var(--blue);
+      border-radius:6px; padding:7px 12px; font-size:12px;
+    }
+    .danger { color:#ff9b9b !important; }
+    .notice { color:var(--blue); font-size:13px; margin-top:12px; }
+    .hidden { display:none !important; }
+    @media(max-width:760px) {
+      .nav-links {
+        display:none; position:absolute; top:76px; left:0; right:0;
+        padding:20px 5%; background:#091326; flex-direction:column; align-items:flex-start;
+        border-bottom:1px solid var(--line);
+      }
+      .nav-links.open { display:flex; }
+      .menu-btn { display:block; }
+      .grid { grid-template-columns:1fr; }
+      .about-grid { grid-template-columns:1fr; }
+      section { padding:65px 0; }
+      .hero { min-height:570px; }
+      .hero:before { width:280px; height:280px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
- <a href="#home" class="logo">✦ NEXUS <span>OUTREACH</span></a>
- <button class="menu" aria-label="Open menu" aria-expanded="false">☰</button>
- <nav>
-  <a href="#about">About</a>
-  <a href="#values">Our values</a>
-  <a href="#initiatives">Initiatives</a>
-  <a href="#advocacy">Advocacy</a>
-  <a href="#join">Get involved</a>
- </nav>
-</header>
+<div id="publicSite">
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#home">✦ NEXUS <span>OUTREACH</span></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#values">Our Values</a>
+          <a href="#initiatives">Initiatives</a>
+          <a href="#advocacy">Advocacy</a>
+          <a href="#journal">Journal</a>
+          <a href="#contact">Get involved</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-<main>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content container">
+        <div class="eyebrow">A generation of purposeful action</div>
+        <h1>Beyond awareness.<br><span>Towards action.</span></h1>
+        <p>Nexus Outreach is a youth-led community committed to building informed, responsible and empowered young people who turn ideas into meaningful change.</p>
+        <div class="actions">
+          <a class="btn primary" href="#about">Discover Nexus</a>
+          <a class="btn secondary" href="#contact">Become part of us</a>
+        </div>
+      </div>
+    </section>
 
-<section class="hero" id="home">
- <div class="hero-content">
-  <div class="eyebrow">A YOUTH-LED MOVEMENT · NIGERIA</div>
-  <h1>Beyond awareness.<br><span>Towards action.</span></h1>
-  <p class="intro">
-   We connect curious minds, courageous voices and committed young people to build a more informed, responsible and empowered society.
-  </p>
-  <div class="actions">
-   <a class="button" href="#about">Discover Nexus ↗</a>
-   <a class="secondary" href="#join">Become part of the constellation →</a>
+    <section id="about">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">Who we are</div>
+          <div class="section-head">
+            <h2>Connecting awareness with action.</h2>
+            <p>Nexus Outreach exists to create a space where young people can learn, question, collaborate and take action on issues that shape their communities and the world around them.</p>
+          </div>
+          <p class="muted">We believe that meaningful change begins with informed minds, shared responsibility and the courage to act. Through conversations, learning experiences and advocacy, we aim to help young people become active contributors to society.</p>
+        </div>
+        <div class="about-panel">
+          <div><strong>NEXUS</strong><span>LEARN · CONNECT · ACT</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="values">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">What guides us</div>
+          <h2>Our values</h2>
+          <p>The principles that shape our community, our conversations and our work.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="symbol">✧</div><h3>Responsibility</h3><p>We believe every individual has a role to play in building a better society.</p></article>
+          <article class="card"><div class="symbol">◇</div><h3>Knowledge</h3><p>We value curiosity, critical thinking and the pursuit of informed understanding.</p></article>
+          <article class="card"><div class="symbol">✦</div><h3>Unity</h3><p>We create room for different perspectives, collaboration and shared growth.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="initiatives">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">What we do</div>
+          <h2>Our initiatives</h2>
+          <p>Spaces and experiences designed to turn learning into participation.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="symbol">01</div><h3>Community learning</h3><p>Discussions and learning sessions that encourage members to explore important social issues.</p></article>
+          <article class="card"><div class="symbol">02</div><h3>Youth development</h3><p>Building confidence, leadership, communication and the ability to think independently.</p></article>
+          <article class="card"><div class="symbol">03</div><h3>Collective action</h3><p>Encouraging practical involvement and community-focused solutions beyond conversation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="advocacy">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Our commitment</div>
+          <h2>Advocacy that moves beyond words.</h2>
+          <p>We encourage young people to understand the issues affecting their communities, raise thoughtful questions and participate in shaping solutions.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><h3>Understand</h3><p>Learn about the systems, challenges and opportunities that shape society.</p></article>
+          <article class="card"><h3>Speak</h3><p>Use informed voices to contribute to public conversations and advocate responsibly.</p></article>
+          <article class="card"><h3>Act</h3><p>Translate ideas into practical steps that can make a difference.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="journal">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">News, stories & updates</div>
+          <h2>The Nexus Journal</h2>
+          <p>Updates, reports, announcements and stories from our community.</p>
+        </div>
+        <div class="grid" id="publicPosts">
+          <div class="empty">Loading Nexus updates...</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta">
+          <div class="eyebrow">Be part of the movement</div>
+          <h2>Ideas are only the beginning.</h2>
+          <p>Join a community committed to learning, leadership and meaningful action.</p>
+          <a class="btn primary" href="mailto:abubakar103sad@gmail.com">Contact Nexus</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>✦ NEXUS OUTREACH</span>
+      <span>Beyond awareness. Towards action.</span>
+      <span>© <span id="year"></span> Nexus Outreach</span>
+    </div>
+  </footer>
+</div>
+
+<section id="adminPanel">
+  <div class="container admin-wrap">
+    <div class="admin-top">
+      <div><div class="eyebrow">Nexus Outreach</div><h2>Admin dashboard</h2></div>
+      <button class="logout" id="backBtn">← View website</button>
+    </div>
+
+    <div class="admin-box" id="loginBox">
+      <h3>Administrator sign in</h3>
+      <p class="muted">Sign in with your authorised administrator account.</p>
+      <form id="loginForm">
+        <label for="email">Email address</label>
+        <input id="email" type="email" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <div class="actions" style="justify-content:flex-start">
+          <button class="btn primary" type="submit">Sign in</button>
+        </div>
+      </form>
+      <div class="notice" id="loginMessage"></div>
+    </div>
+
+    <div id="dashboard" class="hidden">
+      <div class="admin-box">
+        <h3 id="editorHeading">Create a post</h3>
+        <form id="postForm">
+          <input type="hidden" id="postId">
+          <label for="postTitle">Post title</label>
+          <input id="postTitle" maxlength="120" required placeholder="Enter a title">
+          <label for="postType">Post category</label>
+          <select id="postType">
+            <option>Announcement</option>
+            <option>Session Summary</option>
+            <option>Phase Report</option>
+            <option>Impact Story</option>
+            <option>General Update</option>
+          </select>
+          <label for="postContent">Content</label>
+          <textarea id="postContent" required placeholder="Write your update here..."></textarea>
+          <label for="postStatus">Publishing status</label>
+          <select id="postStatus">
+            <option value="draft">Save as draft</option>
+            <option value="published">Publish publicly</option>
+          </select>
+          <div class="actions" style="justify-content:flex-start">
+            <button class="btn primary" type="submit" id="savePostBtn">Save post</button>
+            <button class="btn secondary" type="button" id="cancelEditBtn">Clear</button>
+          </div>
+        </form>
+        <div class="notice" id="editorMessage"></div>
+      </div>
+
+      <div class="admin-box">
+        <h3>Your posts</h3>
+        <p class="muted">Manage drafts and published updates.</p>
+        <div id="adminPosts"><p class="notice">Loading posts...</p></div>
+      </div>
+    </div>
   </div>
- </div>
-
- <div class="cosmos" aria-hidden="true">
-  <div class="orbit"></div>
-  <div class="orbit two"></div>
-  <div class="planet"></div>
-  <i class="cosmic-star st1"></i>
-  <i class="cosmic-star st2"></i>
-  <i class="cosmic-star st3"></i>
-  <i class="cosmic-star st4"></i>
- </div>
-
- <div class="hero-footer">
-  <span>01 / A SHARED PURPOSE</span>
-  <span>SCROLL TO EXPLORE ↓</span>
- </div>
 </section>
 
-<section class="section" id="about">
- <div class="eyebrow">WHO WE ARE</div>
- <h2>Potential becomes powerful<br>when it is <span>connected.</span></h2>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import {
+    getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+  import {
+    getFirestore, collection, addDoc, getDocs, doc, updateDoc,
+    deleteDoc, serverTimestamp, query, where
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
- <div class="about-grid">
-  <p class="lead">
-   Nexus Outreach is a youth leadership and advocacy organisation rooted in the belief that meaningful change begins when young people are informed, equipped and connected.
-  </p>
-  <div>
-   <p>We create spaces for learning, dialogue, collaboration and action. Our work is built around helping young people move beyond simply recognising challenges to developing the confidence and capacity to respond to them.</p>
-   <p>We are starting in Nigeria, with a vision that reaches beyond borders.</p>
-  </div>
- </div>
-</section>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDKoVJtFJw9E2EB5lkpPNS-Cs0FaXysX7s",
+    authDomain: "nexus-outreach-ee040.firebaseapp.com",
+    projectId: "nexus-outreach-ee040",
+    storageBucket: "nexus-outreach-ee040.firebasestorage.app",
+    messagingSenderId: "458173917240",
+    appId: "1:458173917240:web:17fae8db92150630ed1ecd",
+    measurementId: "G-GB3Z4MY4QV"
+  };
 
-<section class="section values" id="values">
- <div class="eyebrow">OUR NORTH STAR</div>
- <h2>What guides <span>us.</span></h2>
+  const ADMIN_UID = "0DeWZfcpTcTOjyOhAsLA7b6RLSh1";
 
- <div class="value-grid">
-  <article class="value-card">
-   <b>01</b>
-   <h3>Leadership</h3>
-   <p>Taking responsibility, setting direction and helping others grow.</p>
-  </article>
-  <article class="value-card">
-   <b>02</b>
-   <h3>Knowledge</h3>
-   <p>Choosing curiosity, critical thinking and lifelong learning.</p>
-  </article>
-  <article class="value-card">
-   <b>03</b>
-   <h3>Advocacy</h3>
-   <p>Turning informed voices into constructive action for change.</p>
-  </article>
-  <article class="value-card">
-   <b>04</b>
-   <h3>Community</h3>
-   <p>Building connections across experiences, disciplines and perspectives.</p>
-  </article>
- </div>
-</section>
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
 
-<section class="section" id="initiatives">
- <div class="eyebrow">WHAT WE DO</div>
- <h2>Ideas in motion.</h2>
+  const $ = id => document.getElementById(id);
+  const publicSite = $("publicSite");
+  const adminPanel = $("adminPanel");
+  const loginBox = $("loginBox");
+  const dashboard = $("dashboard");
 
- <article class="initiative">
-  <small>N / 01</small>
-  <div>
-   <h3>Learning & leadership experiences</h3>
-   <p>Interactive programmes that encourage reflection, communication, critical thinking and practical leadership.</p>
-  </div>
- </article>
+  $("year").textContent = new Date().getFullYear();
 
- <article class="initiative">
-  <small>N / 02</small>
-  <div>
-   <h3>Community conversations</h3>
-   <p>Thoughtful dialogue that brings young people together to examine issues and explore possible solutions.</p>
-  </div>
- </article>
+  $("menuBtn").addEventListener("click", () => {
+    $("navLinks").classList.toggle("open");
+  });
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => $("navLinks").classList.remove("open"));
+  });
 
- <article class="initiative">
-  <small>N / 03</small>
-  <div>
-   <h3>Youth-led action</h3>
-   <p>Creating pathways for members to turn shared learning into responsible community engagement.</p>
-  </div>
- </article>
-</section>
+  function showRoute() {
+    const adminMode = location.hash === "#admin";
+    publicSite.style.display = adminMode ? "none" : "block";
+    adminPanel.style.display = adminMode ? "block" : "none";
+    if (!adminMode) window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", showRoute);
+  showRoute();
 
-<section class="section advocacy" id="advocacy">
- <div class="eyebrow">OUR AREAS OF INTEREST</div>
- <h2>Awareness is a beginning.<br><span>Action is the direction.</span></h2>
- <p class="lead">
-  Nexus creates room for young people to learn about the issues shaping their communities and to contribute meaningfully to the conversations around them.
- </p>
+  $("backBtn").addEventListener("click", () => {
+    location.hash = "";
+  });
 
- <div class="topic-list">
-  <span>Youth development</span>
-  <span>Education & opportunity</span>
-  <span>Public health awareness</span>
-  <span>Civic responsibility</span>
-  <span>Leadership & inclusion</span>
- </div>
-</section>
+  function showMessage(id, message, isError = false) {
+    const el = $(id);
+    el.textContent = message;
+    el.style.color = isError ? "#ff9b9b" : "#91baff";
+  }
 
-<section class="journal">
- <div>
-  <div class="eyebrow">NEXUS JOURNAL</div>
-  <h2>Ideas worth<br>passing on.</h2>
-  <p>Stories, reflections and perspectives from our growing community.</p>
- </div>
- <div class="stamp">
-  COMING
-  <strong>SOON</strong>
-  ✦
- </div>
-</section>
+  $("loginForm").addEventListener("submit", async event => {
+    event.preventDefault();
+    showMessage("loginMessage", "Signing in...");
+    try {
+      await signInWithEmailAndPassword(
+        auth, $("email").value.trim(), $("password").value
+      );
+    } catch (error) {
+      showMessage("loginMessage", error.message, true);
+    }
+  });
 
-<section class="section join" id="join">
- <div class="eyebrow">FIND YOUR PLACE IN THE CONSTELLATION</div>
- <h2>There is room<br>for <span>your light.</span></h2>
- <p class="lead">
-  Have a question, an idea or an interest in contributing to Nexus Outreach? We'd love to hear from you.
- </p>
- <a class="button" href="mailto:abubakar103sad@gmail.com">Connect with Nexus ↗</a>
- <span class="email">abubakar103sad@gmail.com</span>
-</section>
+  onAuthStateChanged(auth, async user => {
+    if (location.hash !== "#admin") return;
 
-</main>
+    if (!user) {
+      loginBox.classList.remove("hidden");
+      dashboard.classList.add("hidden");
+      return;
+    }
 
-<footer>
- <a href="#home" class="logo">✦ NEXUS <span>OUTREACH</span></a>
- <p>Beyond awareness. Towards action.</p>
- <span>© <span id="year"></span> Nexus Outreach</span>
-</footer>
+    if (user.uid !== ADMIN_UID) {
+      showMessage("loginMessage", "This account is not authorised as an administrator.", true);
+      await signOut(auth);
+      return;
+    }
 
-<script>
-const menu=document.querySelector('.menu');
-const nav=document.querySelector('nav');
+    loginBox.classList.add("hidden");
+    dashboard.classList.remove("hidden");
+    await loadAdminPosts();
+  });
 
-menu.addEventListener('click',()=>{
- const opened=nav.classList.toggle('open');
- menu.setAttribute('aria-expanded',String(opened));
-});
+  async function loadPublicPosts() {
+    const container = $("publicPosts");
+    try {
+      const q = query(
+        collection(db, "posts"),
+        where("status", "==", "published")
+      );
+      const snapshot = await getDocs(q);
+      const posts = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+      posts.sort((a, b) => {
+        const at = a.updatedAt?.toMillis?.() || 0;
+        const bt = b.updatedAt?.toMillis?.() || 0;
+        return bt - at;
+      });
 
-document.querySelectorAll('nav a').forEach(link=>{
- link.addEventListener('click',()=>{
-  nav.classList.remove('open');
-  menu.setAttribute('aria-expanded','false');
- });
-});
+      if (!posts.length) {
+        container.innerHTML = '<div class="empty">No updates have been published yet. Check back soon.</div>';
+        return;
+      }
 
-document.getElementById('year').textContent=new Date().getFullYear();
+      container.replaceChildren();
+      posts.forEach(post => {
+        const article = document.createElement("article");
+        article.className = "card journal-card";
+
+        const category = document.createElement("div");
+        category.className = "date";
+        category.textContent = post.type || "NEXUS UPDATE";
+
+        const heading = document.createElement("h3");
+        heading.textContent = post.title || "Untitled";
+
+        const body = document.createElement("p");
+        body.className = "post-body";
+        body.textContent = post.content || "";
+
+        article.append(category, heading, body);
+        container.appendChild(article);
+      });
+    } catch (error) {
+      container.innerHTML = '<div class="empty">Updates are temporarily unavailable. Please check again later.</div>';
+      console.error(error);
+    }
+  }
+
+  async function loadAdminPosts() {
+    const container = $("adminPosts");
+    container.textContent = "Loading posts...";
+    try {
+      const snapshot = await getDocs(collection(db, "posts"));
+      const posts = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+      posts.sort((a, b) => {
+        const at = a.updatedAt?.toMillis?.() || 0;
+        const bt = b.updatedAt?.toMillis?.() || 0;
+        return bt - at;
+      });
+
+      if (!posts.length) {
+        container.innerHTML = '<p class="muted">You have not created any posts yet.</p>';
+        return;
+      }
+
+      container.replaceChildren();
+      posts.forEach(post => {
+        const item = document.createElement("div");
+        item.className = "admin-post";
+
+        const heading = document.createElement("h3");
+        heading.textContent = post.title || "Untitled";
+
+        const description = document.createElement("p");
+        description.textContent = `${post.type || "Update"} · ${post.status || "draft"}`;
+
+        const actions = document.createElement("div");
+        actions.className = "small-actions";
+
+        const edit = document.createElement("button");
+        edit.textContent = "Edit";
+        edit.addEventListener("click", () => editPost(post));
+
+        const toggle = document.createElement("button");
+        toggle.textContent = post.status === "published" ? "Unpublish" : "Publish";
+        toggle.addEventListener("click", () => changeStatus(post));
+
+        const remove = document.createElement("button");
+        remove.textContent = "Delete";
+        remove.className = "danger";
+        remove.addEventListener("click", () => removePost(post));
+
+        actions.append(edit, toggle, remove);
+        item.append(heading, description, actions);
+        container.appendChild(item);
+      });
+    } catch (error) {
+      container.textContent = "Could not load posts: " + error.message;
+    }
+  }
+
+  $("postForm").addEventListener("submit", async event => {
+    event.preventDefault();
+    const user = auth.currentUser;
+    if (!user || user.uid !== ADMIN_UID) {
+      showMessage("editorMessage", "Administrator access required.", true);
+      return;
+    }
+
+    const id = $("postId").value;
+    const data = {
+      title: $("postTitle").value.trim(),
+      type: $("postType").value,
+      content: $("postContent").value.trim(),
+      status: $("postStatus").value,
+      updatedAt: serverTimestamp()
+    };
+
+    if (!data.title || !data.content) {
+      showMessage("editorMessage", "Please enter a title and content.", true);
+      return;
+    }
+
+    $("savePostBtn").disabled = true;
+    showMessage("editorMessage", "Saving...");
+    try {
+      if (id) {
+        await updateDoc(doc(db, "posts", id), data);
+      } else {
+        data.createdAt = serverTimestamp();
+        data.authorUid = user.uid;
+        await addDoc(collection(db, "posts"), data);
+      }
+      clearEditor();
+      showMessage("editorMessage", "Post saved successfully.");
+      await loadAdminPosts();
+      await loadPublicPosts();
+    } catch (error) {
+      showMessage("editorMessage", error.message, true);
+    } finally {
+      $("savePostBtn").disabled = false;
+    }
+  });
+
+  function editPost(post) {
+    $("postId").value = post.id;
+    $("postTitle").value = post.title || "";
+    $("postType").value = post.type || "General Update";
+    $("postContent").value = post.content || "";
+    $("postStatus").value = post.status || "draft";
+    $("editorHeading").textContent = "Edit post";
+    $("savePostBtn").textContent = "Update post";
+    $("postTitle").scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  async function changeStatus(post) {
+    const next = post.status === "published" ? "draft" : "published";
+    try {
+      await updateDoc(doc(db, "posts", post.id), {
+        status: next,
+        updatedAt: serverTimestamp()
+      });
+      await loadAdminPosts();
+      await loadPublicPosts();
+    } catch (error) {
+      alert("Could not update post: " + error.message);
+    }
+  }
+
+  async function removePost(post) {
+    if (!confirm(`Delete "${post.title}"? This cannot be undone.`)) return;
+    try {
+      await deleteDoc(doc(db, "posts", post.id));
+      await loadAdminPosts();
+      await loadPublicPosts();
+    } catch (error) {
+      alert("Could not delete post: " + error.message);
+    }
+  }
+
+  function clearEditor() {
+    $("postForm").reset();
+    $("postId").value = "";
+    $("editorHeading").textContent = "Create a post";
+    $("savePostBtn").textContent = "Save post";
+  }
+
+  $("cancelEditBtn").addEventListener("click", clearEditor);
+
+  $("backBtn").addEventListener("click", async () => {
+    if (auth.currentUser) await signOut(auth);
+    location.hash = "";
+  });
+
+  loadPublicPosts();
 </script>
-
 </body>
 </html>
