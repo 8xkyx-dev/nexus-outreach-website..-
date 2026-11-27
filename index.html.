@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070d1c">
+<meta name="description" content="Nexus Outreach is a youth leadership and advocacy organisation. Beyond awareness. Towards action.">
+<title>Nexus Outreach | Beyond Awareness. Towards Action.</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+ --bg:#070d1c;
+ --panel:#0c172c;
+ --blue:#91baff;
+ --white:#f5f7fc;
+ --muted:#aab6ca;
+ --line:#293954;
+}
+
+* {box-sizing:border-box;margin:0;padding:0}
+
+html {scroll-behavior:smooth}
+
+body {
+ background:var(--bg);
+ color:var(--white);
+ font-family:'DM Sans',sans-serif;
+ line-height:1.7;
+ overflow-x:hidden;
+}
+
+body::before {
+ content:"";
+ position:fixed;
+ inset:0;
+ z-index:-1;
+ pointer-events:none;
+ background-image:
+ radial-gradient(1px 1px at 10% 20%,white 99%,transparent),
+ radial-gradient(1px 1px at 70% 40%,white 99%,transparent),
+ radial-gradient(2px 2px at 40% 80%,white 99%,transparent),
+ radial-gradient(1px 1px at 90% 10%,white 99%,transparent);
+ background-size:240px 220px;
+ opacity:.35;
+}
+
+header {
+ height:80px;
+ padding:0 7%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ border-bottom:1px solid #ffffff18;
+ background:#070d1ceF;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+
+.logo {
+ color:white;
+ text-decoration:none;
+ font:800 16px Manrope,sans-serif;
+ letter-spacing:2px;
+}
+
+.logo span {color:var(--blue)}
+
+nav {display:flex;gap:28px;align-items:center}
+
+nav a {
+ color:#c4cee0;
+ text-decoration:none;
+ font-size:13px;
+}
+
+nav a:hover {color:var(--blue)}
+
+.menu {
+ display:none;
+ color:white;
+ background:none;
+ border:0;
+ font-size:27px;
+ cursor:pointer;
+}
+
+.hero {
+ min-height:690px;
+ padding:110px 9%;
+ display:flex;
+ align-items:center;
+ position:relative;
+ overflow:hidden;
+}
+
+.hero-content {max-width:650px;z-index:2}
+
+.eyebrow {
+ color:var(--blue);
+ font-size:10px;
+ letter-spacing:3px;
+ font-weight:700;
+ margin-bottom:20px;
+}
+
+h1,h2,h3 {font-family:Manrope,sans-serif}
+
+h1 {
+ font-size:clamp(43px,6vw,75px);
+ line-height:1.12;
+ letter-spacing:-3px;
+ margin-bottom:25px;
+}
+
+h1 span,h2 span {color:var(--blue)}
+
+.hero p.intro {
+ max-width:570px;
+ color:#b9c5d9;
+ font-size:17px;
+}
+
+.actions {
+ display:flex;
+ align-items:center;
+ gap:25px;
+ flex-wrap:wrap;
+ margin-top:35px;
+}
+
+.button {
+ display:inline-block;
+ background:#dce9ff;
+ color:#081226;
+ padding:13px 21px;
+ text-decoration:none;
+ font-size:13px;
+ font-weight:700;
+ transition:.25s;
+}
+
+.button:hover {background:white;transform:translateY(-3px)}
+
+.secondary {
+ color:#cbd7e9;
+ text-decoration:none;
+ font-size:13px;
+}
+
+.cosmos {
+ position:absolute;
+ right:8%;
+ top:120px;
+ width:400px;
+ height:400px;
+ display:grid;
+ place-items:center;
+}
+
+.planet {
+ width:155px;
+ height:155px;
+ border-radius:50%;
+ background:radial-gradient(circle at 30% 25%,#e4efff,#7699d0 35%,#243c68 75%,#101a30);
+ box-shadow:0 0 90px #7198d755;
+}
+
+.orbit {
+ position:absolute;
+ width:350px;
+ height:170px;
+ border:1px solid #8eb7ff66;
+ border-radius:50%;
+ transform:rotate(-30deg);
+}
+
+.orbit.two {
+ width:260px;
+ height:360px;
+ transform:rotate(45deg);
+ opacity:.5;
+}
+
+.cosmic-star {
+ position:absolute;
+ width:7px;
+ height:7px;
+ background:white;
+ border-radius:50%;
+ box-shadow:0 0 15px var(--blue);
+}
+
+.st1 {top:35px;left:80px}
+.st2 {right:10px;top:120px}
+.st3 {bottom:60px;left:40px}
+.st4 {bottom:20px;right:110px}
+
+.hero-footer {
+ position:absolute;
+ bottom:25px;
+ left:9%;
+ right:9%;
+ display:flex;
+ justify-content:space-between;
+ color:#8291aa;
+ font-size:9px;
+ letter-spacing:2px;
+}
+
+section {scroll-margin-top:80px}
+
+.section {padding:105px 12%}
+
+.section h2 {
+ font-size:clamp(36px,5vw,57px);
+ line-height:1.2;
+ letter-spacing:-2px;
+ margin:15px 0 30px;
+}
+
+.lead {
+ color:#d4deed;
+ font-size:19px;
+ max-width:720px;
+}
+
+.about-grid {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:65px;
+ margin-top:40px;
+}
+
+.about-grid p {color:var(--muted);margin-bottom:15px}
+
+.values {background:var(--panel)}
+
+.value-grid {
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:25px;
+ margin-top:50px;
+}
+
+.value-card {
+ border-top:1px solid #627b9e;
+ padding-top:20px;
+}
+
+.value-card b {
+ color:var(--blue);
+ font-size:12px;
+ letter-spacing:2px;
+}
+
+.value-card h3 {margin:15px 0;font-size:19px}
+
+.value-card p {color:var(--muted);font-size:14px}
+
+.initiative {
+ border-top:1px solid var(--line);
+ padding:28px 0;
+ display:grid;
+ grid-template-columns:90px 1fr;
+ gap:20px;
+}
+
+.initiative small {
+ color:var(--blue);
+ letter-spacing:2px;
+}
+
+.initiative h3 {font-size:20px;margin-bottom:8px}
+
+.initiative p {color:var(--muted);max-width:650px;font-size:14px}
+
+.advocacy {background:var(--panel)}
+
+.topic-list {
+ display:flex;
+ flex-wrap:wrap;
+ gap:12px;
+ margin-top:35px;
+}
+
+.topic-list span {
+ border:1px solid #405473;
+ padding:10px 15px;
+ font-size:12px;
+ color:#dce5f3;
+}
+
+.journal {
+ padding:85px 12%;
+ background:linear-gradient(110deg,#132544,#0a1222);
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:30px;
+}
+
+.journal h2 {font-size:48px;line-height:1.15;margin:15px 0}
+
+.journal p {color:var(--muted)}
+
+.stamp {
+ width:140px;
+ height:140px;
+ border:1px solid #8eb7ff;
+ border-radius:50%;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ color:var(--blue);
+ letter-spacing:2px;
+ transform:rotate(10deg);
+ flex-shrink:0;
+}
+
+.stamp strong {font-size:20px;color:white}
+
+.join {text-align:center}
+
+.join .lead {margin:0 auto 30px}
+
+.email {
+ display:block;
+ margin-top:20px;
+ color:#9baecb;
+ font-size:12px;
+}
+
+footer {
+ padding:35px 7%;
+ border-top:1px solid #ffffff18;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:15px;
+ color:#91a0b8;
+ font-size:11px;
+}
+
+@media(max-width:850px) {
+ .cosmos {right:-100px;opacity:.35}
+ .value-grid {grid-template-columns:1fr 1fr}
+ .section {padding:85px 7%}
+ .about-grid {gap:25px}
+}
+
+@media(max-width:600px) {
+ header {padding:0 6%}
+ .menu {display:block}
+ nav {
+  display:none;
+  position:absolute;
+  top:79px;
+  left:0;
+  right:0;
+  background:#0c172c;
+  padding:25px 7%;
+  flex-direction:column;
+  align-items:flex-start;
+ }
+ nav.open {display:flex}
+ .hero {padding:100px 7%;min-height:720px}
+ .hero h1 {font-size:46px}
+ .cosmos {top:410px;right:-110px;transform:scale(.75)}
+ .hero-footer {left:7%;right:7%;font-size:8px}
+ .about-grid {grid-template-columns:1fr}
+ .value-grid {grid-template-columns:1fr}
+ .initiative {grid-template-columns:65px 1fr}
+ .journal {padding:70px 7%}
+ .stamp {display:none}
+ .journal h2 {font-size:40px}
+ footer {padding:30px 7%;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <a href="#home" class="logo">✦ NEXUS <span>OUTREACH</span></a>
+ <button class="menu" aria-label="Open menu" aria-expanded="false">☰</button>
+ <nav>
+  <a href="#about">About</a>
+  <a href="#values">Our values</a>
+  <a href="#initiatives">Initiatives</a>
+  <a href="#advocacy">Advocacy</a>
+  <a href="#join">Get involved</a>
+ </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+ <div class="hero-content">
+  <div class="eyebrow">A YOUTH-LED MOVEMENT · NIGERIA</div>
+  <h1>Beyond awareness.<br><span>Towards action.</span></h1>
+  <p class="intro">
+   We connect curious minds, courageous voices and committed young people to build a more informed, responsible and empowered society.
+  </p>
+  <div class="actions">
+   <a class="button" href="#about">Discover Nexus ↗</a>
+   <a class="secondary" href="#join">Become part of the constellation →</a>
+  </div>
+ </div>
+
+ <div class="cosmos" aria-hidden="true">
+  <div class="orbit"></div>
+  <div class="orbit two"></div>
+  <div class="planet"></div>
+  <i class="cosmic-star st1"></i>
+  <i class="cosmic-star st2"></i>
+  <i class="cosmic-star st3"></i>
+  <i class="cosmic-star st4"></i>
+ </div>
+
+ <div class="hero-footer">
+  <span>01 / A SHARED PURPOSE</span>
+  <span>SCROLL TO EXPLORE ↓</span>
+ </div>
+</section>
+
+<section class="section" id="about">
+ <div class="eyebrow">WHO WE ARE</div>
+ <h2>Potential becomes powerful<br>when it is <span>connected.</span></h2>
+
+ <div class="about-grid">
+  <p class="lead">
+   Nexus Outreach is a youth leadership and advocacy organisation rooted in the belief that meaningful change begins when young people are informed, equipped and connected.
+  </p>
+  <div>
+   <p>We create spaces for learning, dialogue, collaboration and action. Our work is built around helping young people move beyond simply recognising challenges to developing the confidence and capacity to respond to them.</p>
+   <p>We are starting in Nigeria, with a vision that reaches beyond borders.</p>
+  </div>
+ </div>
+</section>
+
+<section class="section values" id="values">
+ <div class="eyebrow">OUR NORTH STAR</div>
+ <h2>What guides <span>us.</span></h2>
+
+ <div class="value-grid">
+  <article class="value-card">
+   <b>01</b>
+   <h3>Leadership</h3>
+   <p>Taking responsibility, setting direction and helping others grow.</p>
+  </article>
+  <article class="value-card">
+   <b>02</b>
+   <h3>Knowledge</h3>
+   <p>Choosing curiosity, critical thinking and lifelong learning.</p>
+  </article>
+  <article class="value-card">
+   <b>03</b>
+   <h3>Advocacy</h3>
+   <p>Turning informed voices into constructive action for change.</p>
+  </article>
+  <article class="value-card">
+   <b>04</b>
+   <h3>Community</h3>
+   <p>Building connections across experiences, disciplines and perspectives.</p>
+  </article>
+ </div>
+</section>
+
+<section class="section" id="initiatives">
+ <div class="eyebrow">WHAT WE DO</div>
+ <h2>Ideas in motion.</h2>
+
+ <article class="initiative">
+  <small>N / 01</small>
+  <div>
+   <h3>Learning & leadership experiences</h3>
+   <p>Interactive programmes that encourage reflection, communication, critical thinking and practical leadership.</p>
+  </div>
+ </article>
+
+ <article class="initiative">
+  <small>N / 02</small>
+  <div>
+   <h3>Community conversations</h3>
+   <p>Thoughtful dialogue that brings young people together to examine issues and explore possible solutions.</p>
+  </div>
+ </article>
+
+ <article class="initiative">
+  <small>N / 03</small>
+  <div>
+   <h3>Youth-led action</h3>
+   <p>Creating pathways for members to turn shared learning into responsible community engagement.</p>
+  </div>
+ </article>
+</section>
+
+<section class="section advocacy" id="advocacy">
+ <div class="eyebrow">OUR AREAS OF INTEREST</div>
+ <h2>Awareness is a beginning.<br><span>Action is the direction.</span></h2>
+ <p class="lead">
+  Nexus creates room for young people to learn about the issues shaping their communities and to contribute meaningfully to the conversations around them.
+ </p>
+
+ <div class="topic-list">
+  <span>Youth development</span>
+  <span>Education & opportunity</span>
+  <span>Public health awareness</span>
+  <span>Civic responsibility</span>
+  <span>Leadership & inclusion</span>
+ </div>
+</section>
+
+<section class="journal">
+ <div>
+  <div class="eyebrow">NEXUS JOURNAL</div>
+  <h2>Ideas worth<br>passing on.</h2>
+  <p>Stories, reflections and perspectives from our growing community.</p>
+ </div>
+ <div class="stamp">
+  COMING
+  <strong>SOON</strong>
+  ✦
+ </div>
+</section>
+
+<section class="section join" id="join">
+ <div class="eyebrow">FIND YOUR PLACE IN THE CONSTELLATION</div>
+ <h2>There is room<br>for <span>your light.</span></h2>
+ <p class="lead">
+  Have a question, an idea or an interest in contributing to Nexus Outreach? We'd love to hear from you.
+ </p>
+ <a class="button" href="mailto:abubakar103sad@gmail.com">Connect with Nexus ↗</a>
+ <span class="email">abubakar103sad@gmail.com</span>
+</section>
+
+</main>
+
+<footer>
+ <a href="#home" class="logo">✦ NEXUS <span>OUTREACH</span></a>
+ <p>Beyond awareness. Towards action.</p>
+ <span>© <span id="year"></span> Nexus Outreach</span>
+</footer>
+
+<script>
+const menu=document.querySelector('.menu');
+const nav=document.querySelector('nav');
+
+menu.addEventListener('click',()=>{
+ const opened=nav.classList.toggle('open');
+ menu.setAttribute('aria-expanded',String(opened));
+});
+
+document.querySelectorAll('nav a').forEach(link=>{
+ link.addEventListener('click',()=>{
+  nav.classList.remove('open');
+  menu.setAttribute('aria-expanded','false');
+ });
+});
+
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
